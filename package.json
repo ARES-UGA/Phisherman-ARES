@@ -1,10 +1,11 @@
 {
   "name": "office-addin-taskpane-js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OfficeDev/Office-Addin-TaskPane-JS.git"
+    "url": "git+https://github.com/The-Hack-Pack/Phisherman-ARES.git"
   },
+  "author": "Agni Athreya, Garrett Moore",
   "license": "MIT",
   "config": {
     "app_to_debug": "outlook",
@@ -12,6 +13,7 @@
     "dev_server_port": 3000
   },
   "scripts": {
+    "test": "node tests/run-tests.js",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "dev-server": "webpack serve --mode development",
@@ -33,7 +35,8 @@
   },
   "dependencies": {
     "core-js": "^3.36.0",
-    "regenerator-runtime": "^0.14.1"
+    "regenerator-runtime": "^0.14.1",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
@@ -64,5 +67,16 @@
   "browserslist": [
     "last 2 versions",
     "ie 11"
-  ]
+  ],
+  "keywords": [
+    "outlook",
+    "phishing",
+    "security",
+    "ai",
+    "office-addin"
+  ],
+  "bugs": {
+    "url": "https://github.com/The-Hack-Pack/Phisherman-ARES/issues"
+  },
+  "homepage": "https://github.com/The-Hack-Pack/Phisherman-ARES#readme"
 }
