@@ -1,0 +1,349 @@
+<div class="min-h-screen bg-email-bg">
+  <!-- Mobile-first responsive container -->
+  <div
+    class="max-w-sm mx-auto bg-email-bg md:max-w-md lg:max-w-lg xl:max-w-2xl 2xl:max-w-4xl"
+  >
+    <!-- Dashboard content -->
+    <div class="relative px-6 py-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-8 md:mb-12">
+        <div class="flex flex-col gap-1">
+          <!-- Title with dropdown -->
+          <div class="flex items-end gap-1">
+            <h1
+              class="font-poppins font-black text-28 md:text-3xl lg:text-4xl xl:text-5xl leading-[120%] tracking-tight-1 text-main-dark"
+            >
+              All Inboxes
+            </h1>
+            <svg class="w-6 h-6 mb-1" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M16.293 9.293L12 13.586L7.707 9.293L6.293 10.707L12 16.414L17.707 10.707L16.293 9.293Z"
+                fill="#161616"
+              />
+            </svg>
+          </div>
+          <!-- Subtitle -->
+          <p class="text-sm font-medium text-main-paragraph font-poppins">
+            Total 2500 Messages, 3 Unread
+          </p>
+        </div>
+
+        <!-- User avatar -->
+        <img
+          src="https://api.builder.io/api/v1/image/assets/TEMP/6564f8409eae5f096060038d20a908a110ee50de?width=104"
+          alt="User avatar"
+          class="w-13 h-13 rounded-full object-cover"
+        />
+      </div>
+
+      <!-- Email client section -->
+      <div class="flex items-center gap-2 mb-6">
+        <div class="flex flex-col items-center">
+          <!-- Outlook icon with badge -->
+          <div class="relative w-18 h-18">
+            <div
+              class="w-18 h-18 bg-white rounded-full flex items-center justify-center shadow-sm"
+            >
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/04eb45262e3ca03a4ac5fc576e808e8981c54233?width=64"
+                alt="Outlook icon"
+                class="w-8 h-8"
+              />
+            </div>
+            <!-- Notification badge -->
+            <div
+              class="absolute -bottom-1 -right-1 bg-main-primary text-white text-xs font-bold font-poppins px-2 py-1 rounded-full min-w-[24px] h-5 flex items-center justify-center"
+            >
+              8
+            </div>
+          </div>
+          <!-- Label -->
+          <span
+            class="text-sm font-medium text-main-paragraph font-poppins mt-2"
+          >
+            Outlook
+          </span>
+        </div>
+      </div>
+
+      <!-- Email content area -->
+      <div class="bg-white rounded-t-3xl overflow-hidden">
+        <!-- Categories -->
+        <div class="px-5 pt-6 pb-4">
+          <div class="flex justify-between items-center mb-4">
+            <div class="flex gap-6">
+              <div class="relative">
+                <span class="text-sm font-bold text-main-dark font-poppins"
+                  >Primary</span
+                >
+                <div
+                  class="absolute -bottom-2 left-0 w-6 h-1 bg-main-primary rounded"
+                ></div>
+              </div>
+              <span class="text-sm font-bold text-shades-dark-40 font-poppins"
+                >Social</span
+              >
+              <span class="text-sm font-bold text-shades-dark-40 font-poppins"
+                >Forums</span
+              >
+            </div>
+            <div class="flex items-center gap-6">
+              <svg class="w-3 h-1" viewBox="0 0 13 4" fill="none">
+                <circle cx="1.68425" cy="2.008" r="1.456" fill="#A2A2A2" />
+                <circle cx="6.60612" cy="2.008" r="1.456" fill="#A2A2A2" />
+                <circle cx="11.528" cy="2.008" r="1.472" fill="#A2A2A2" />
+              </svg>
+              <span class="text-sm font-bold text-shades-dark-40 font-poppins"
+                >Edit</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Email cards -->
+        <div class="px-5 pb-6 space-y-2">
+          <!-- Email Card 1 -->
+          <div
+            (click)="onEmailClick(1)"
+            class="flex items-start gap-3 p-4 bg-email-bg border border-shades-dark-5 rounded-2xl cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/517c004ae91dfcc1d288d9c647ef731ebdfe51f0?width=96"
+              alt="Sara avatar"
+              class="w-12 h-12 rounded-full object-cover flex-shrink-0"
+            />
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-col">
+                <span
+                  class="text-sm font-medium text-main-paragraph font-poppins"
+                  >Sara</span
+                >
+                <h3 class="text-base font-black text-main-dark font-poppins">
+                  Thank You!
+                </h3>
+              </div>
+              <p
+                class="text-sm font-medium text-main-paragraph font-poppins mt-2 line-clamp-2"
+              >
+                Thank you for using our app! We hope you love it.
+              </p>
+            </div>
+            <div class="flex flex-col items-end gap-8">
+              <span class="text-xs font-bold text-shades-dark-40 font-poppins"
+                >57 m</span
+              >
+              <div class="w-2 h-2 bg-main-secondary rounded-full"></div>
+            </div>
+          </div>
+
+          <!-- Email Card 2 -->
+          <div
+            (click)="onEmailClick(2)"
+            class="flex items-start gap-3 p-4 bg-email-bg border border-shades-dark-5 rounded-2xl cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/752348df424e2da9c6c91bb885b6ba45976b9027?width=96"
+              alt="Leslie Alexander avatar"
+              class="w-12 h-12 rounded-full object-cover flex-shrink-0"
+            />
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-col">
+                <span
+                  class="text-sm font-medium text-main-paragraph font-poppins"
+                  >Leslie Alexander</span
+                >
+                <h3 class="text-base font-black text-main-dark font-poppins">
+                  Getting Involved?
+                </h3>
+              </div>
+              <p
+                class="text-sm font-medium text-main-paragraph font-poppins mt-2 line-clamp-2"
+              >
+                Like our work? Reach out to us on the About Us to work with us!
+              </p>
+            </div>
+            <div class="flex flex-col items-end gap-8">
+              <span class="text-xs font-bold text-shades-dark-40 font-poppins"
+                >4 hr</span
+              >
+              <div class="w-2 h-2 bg-main-secondary rounded-full"></div>
+            </div>
+          </div>
+
+          <!-- Email Card 3 -->
+          <div
+            (click)="onEmailClick(3)"
+            class="flex items-start gap-3 p-4 bg-email-bg border border-shades-dark-5 rounded-2xl cursor-pointer hover:bg-gray-50 transition-colors"
+          >
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/55103bb99abce27688f51b52d81ed6febba9a647?width=96"
+              alt="Robert Fox avatar"
+              class="w-12 h-12 rounded-full object-cover flex-shrink-0"
+            />
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-col">
+                <span
+                  class="text-sm font-medium text-main-paragraph font-poppins"
+                  >Robert Fox</span
+                >
+                <h3 class="text-base font-black text-main-dark font-poppins">
+                  Back to the Start
+                </h3>
+              </div>
+              <p
+                class="text-sm font-medium text-main-paragraph font-poppins mt-2 line-clamp-2"
+              >
+                We are looking for a Senior UX designer to retouch our work.
+              </p>
+            </div>
+            <div class="flex flex-col items-end gap-8">
+              <span class="text-xs font-bold text-shades-dark-40 font-poppins"
+                >1 day</span
+              >
+            </div>
+          </div>
+
+          <!-- Email Card 4 -->
+          <div
+            class="flex items-start gap-3 p-4 bg-email-bg border border-shades-dark-5 rounded-2xl"
+          >
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/c1c29718f94f972513772111e987a75563504f3d?width=96"
+              alt="Doug Nelson avatar"
+              class="w-12 h-12 rounded-full object-cover flex-shrink-0"
+            />
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-col">
+                <span
+                  class="text-sm font-medium text-main-paragraph font-poppins"
+                  >Doug Nelson</span
+                >
+                <h3 class="text-base font-black text-main-dark font-poppins">
+                  Looking for Fresh Fish
+                </h3>
+              </div>
+              <p
+                class="text-sm font-medium text-main-paragraph font-poppins mt-2 line-clamp-2"
+              >
+                Salmon, cod, even tuna. I'm in
+              </p>
+              <button
+                (click)="navigateHome()"
+                class="mt-4 flex items-center gap-3 px-4 py-3 bg-white rounded-2xl border border-gray-100 hover:bg-gray-50 transition-colors"
+              >
+                <svg
+                  class="w-5 h-6 flex-shrink-0"
+                  viewBox="0 0 18 24"
+                  fill="none"
+                >
+                  <path
+                    d="M16.0909 24H1.90906C1.00906 24 0.272705 23.2636 0.272705 22.3636V1.63636C0.272705 0.736359 1.00906 0 1.90906 0H11.7273L17.7273 6V22.3636C17.7273 23.2636 16.9909 24 16.0909 24Z"
+                    fill="#0086F9"
+                  />
+                  <path d="M11.7273 0L17.7273 6H11.7273V0Z" fill="#0067D9" />
+                  <path
+                    d="M4.0909 9.27271H13.9091V10.6363H4.0909V9.27271Z"
+                    fill="#FBFFFF"
+                  />
+                  <path
+                    d="M4.0909 12.5454H13.9091V13.9091H4.0909V12.5454Z"
+                    fill="#FBFFFF"
+                  />
+                  <path
+                    d="M4.0909 15.8182H11.1818V17.1818H4.0909V15.8182Z"
+                    fill="#FBFFFF"
+                  />
+                </svg>
+                <div class="flex flex-col items-start">
+                  <span
+                    class="text-xs font-bold text-main-paragraph font-poppins"
+                    >Return to Homepage</span
+                  >
+                  <span
+                    class="text-xs font-medium text-shades-dark-40 font-satoshi"
+                    >456 kb</span
+                  >
+                </div>
+              </button>
+            </div>
+            <div class="flex flex-col items-end gap-8">
+              <span class="text-xs font-bold text-shades-dark-40 font-poppins"
+                >1 day</span
+              >
+              <div class="w-2 h-2 bg-main-secondary rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating compose button -->
+      <button
+        (click)="onComposeClick()"
+        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-main-primary rounded-full flex items-center justify-center shadow-2xl hover:bg-blue-700 transition-colors z-20"
+      >
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M4.003 21C4.084 21 4.165 20.99 4.245 20.97L8.245 19.97C8.421 19.926 8.582 19.835 8.71 19.707L21.003 7.41398C21.381 7.03598 21.589 6.53398 21.589 5.99998C21.589 5.46598 21.381 4.96398 21.003 4.58598L19.417 2.99998C18.661 2.24398 17.345 2.24398 16.589 2.99998L4.296 15.293C4.168 15.421 4.077 15.582 4.033 15.757L3.033 19.757C2.947 20.098 3.048 20.458 3.296 20.707C3.485 20.897 3.741 21 4.003 21ZM18.003 4.41398L19.589 5.99998L18.003 7.58598L16.417 5.99998L18.003 4.41398ZM5.906 16.511L15.003 7.41398L16.589 8.99998L7.491 18.097L5.377 18.625L5.906 16.511Z"
+            fill="#F3F3F3"
+          />
+        </svg>
+      </button>
+
+      <!-- Alert notification -->
+      <div
+        *ngIf="showAlert"
+        class="fixed inset-0 flex items-center justify-center z-30 p-4"
+      >
+        <div
+          class="bg-black bg-opacity-20 absolute inset-0"
+          (click)="closeAlert()"
+        ></div>
+        <div
+          class="bg-white rounded-2xl p-4 max-w-xs w-full border-2 border-main-secondary relative shadow-xl"
+        >
+          <div class="flex items-start gap-3">
+            <!-- Info icon -->
+            <svg
+              class="w-5 h-5 text-main-secondary flex-shrink-0 mt-0.5"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M10 13.8333V10.5M10 7.16667H10.0083M18.3333 10.5C18.3333 15.1024 14.6024 18.8333 10 18.8333C5.39762 18.8333 1.66666 15.1024 1.66666 10.5C1.66666 5.89763 5.39762 2.16667 10 2.16667C14.6024 2.16667 18.3333 5.89763 18.3333 10.5Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <div class="flex-1">
+              <h3 class="font-bold text-base text-main-dark font-inter mb-1">
+                Alert
+              </h3>
+              <p class="text-base text-main-dark font-inter">
+                Select an email in your inbox to get started.
+              </p>
+            </div>
+
+            <!-- Close button -->
+            <button
+              (click)="closeAlert()"
+              class="flex-shrink-0 p-2 hover:bg-gray-100 rounded-full transition-colors -mr-2 -mt-2"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 20 21" fill="none">
+                <path
+                  d="M15 5.5L5 15.5M5 5.5L15 15.5"
+                  stroke="#2C2C2C"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

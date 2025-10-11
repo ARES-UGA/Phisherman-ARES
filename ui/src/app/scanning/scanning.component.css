@@ -1,0 +1,27 @@
+/* Component-specific styles for Scanning page */
+
+/* Custom scanning animation */
+@keyframes scan {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.scanning-animation {
+  animation: scan 2s ease-in-out infinite;
+}
+
+/* Ensure buttons stay at bottom on all screen sizes */
+.fixed-bottom-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}

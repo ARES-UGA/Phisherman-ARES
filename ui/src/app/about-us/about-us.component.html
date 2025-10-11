@@ -1,0 +1,109 @@
+<div class="min-h-screen bg-email-bg">
+  <!-- Mobile-first responsive container -->
+  <div class="max-w-sm mx-auto bg-email-bg md:max-w-md lg:max-w-lg xl:max-w-2xl 2xl:max-w-4xl">
+    
+    <!-- Email composition interface -->
+    <div class="relative px-6 py-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      
+      <!-- Header with controls -->
+      <div class="flex justify-between items-start mb-8 md:mb-12">
+        <!-- Close button -->
+        <button (click)="navigateBack()" class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M16.192 6.34399L11.949 10.586L7.70703 6.34399L6.29303 7.75799L10.535 12L6.29303 16.242L7.70703 17.656L11.949 13.414L16.192 17.656L17.606 16.242L13.364 12L17.606 7.75799L16.192 6.34399Z" fill="#A2A2A2"/>
+          </svg>
+        </button>
+        
+        <!-- Send and more options -->
+        <div class="flex items-center gap-2">
+          <!-- Send button -->
+          <button class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="#A2A2A2"/>
+            </svg>
+          </button>
+          
+          <!-- More options -->
+          <button class="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="5" r="2" fill="#A2A2A2"/>
+              <circle cx="12" cy="12" r="2" fill="#A2A2A2"/>
+              <circle cx="12" cy="19" r="2" fill="#A2A2A2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Email info section -->
+      <div class="bg-white rounded-3xl p-5 mb-4 md:mb-6 shadow-sm">
+        <!-- To field -->
+        <div class="flex items-center justify-between pb-4 border-b border-shades-dark-5">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-medium text-main-paragraph font-poppins">To:</span>
+            <div class="bg-email-bg px-2 py-1 rounded-full">
+              <span class="text-xs font-bold text-main-paragraph font-poppins">You</span>
+            </div>
+          </div>
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M16.293 9.293L12 13.586L7.70703 9.293L6.29303 10.707L12 16.414L17.707 10.707L16.293 9.293Z" fill="#A2A2A2"/>
+          </svg>
+        </div>
+        
+        <!-- From field -->
+        <div class="flex items-center justify-between py-3 border-b border-shades-dark-5">
+          <div class="flex items-center gap-1">
+            <span class="text-sm font-medium text-main-paragraph font-poppins">From:</span>
+            <span class="text-sm font-medium text-main-paragraph font-poppins">ares-dev&#64;outlook.com</span>
+          </div>
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M16.293 9.293L12 13.586L7.70703 9.293L6.29303 10.707L12 16.414L17.707 10.707L16.293 9.293Z" fill="#A2A2A2"/>
+          </svg>
+        </div>
+        
+        <!-- Subject field -->
+        <div class="flex items-center gap-1 pt-3">
+          <span class="text-sm font-medium text-main-paragraph font-poppins">Subject:</span>
+          <span class="text-sm font-medium text-main-paragraph font-poppins">About Us</span>
+        </div>
+      </div>
+
+      <!-- Email body -->
+      <div class="bg-white rounded-3xl p-5 mb-6 shadow-sm min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
+        <div class="space-y-4">
+          <!-- Highlight indicator -->
+          
+          <!-- Email content -->
+          <div class="space-y-4">
+            <p class="text-sm font-medium text-main-paragraph font-poppins">Hello!</p>
+            
+            <p class="text-sm font-medium text-main-paragraph font-poppins leading-relaxed">
+              [This section explains how the app works, the tech stack, and sends users to our Github]
+            </p>
+            
+            <p class="text-sm font-medium text-main-paragraph font-poppins leading-relaxed">
+              Quick question: how does a redesign usually work? You provide with the designs and once everything is OK we have to get someone to make the changes to the code? Or do you also provide the code? And if not can you recommend someone who can?
+            </p>
+            
+            <p class="text-sm font-medium text-main-paragraph font-poppins leading-relaxed italic">
+              On top of that, if the <em>redesign</em> is successful, we would like to design 2 or 3 more pages from scratch (a "news" page, a "my account" page etc). Is this something you can help with?
+            </p>
+            
+            <p class="text-sm font-medium text-main-paragraph font-poppins">
+              ARES Lab
+            </p>
+          </div>
+        </div>
+        
+        <!-- Upload button -->
+        <div class="flex items-center mt-8">
+          <button class="w-12 h-12 bg-email-bg rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#A2A2A2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
