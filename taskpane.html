@@ -7,22 +7,18 @@
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
   <style>
     html, body, iframe {
-      height: 100%;
       margin: 0;
       padding: 0;
-      border: 0;
-    }
-    iframe {
+      height: 100%;
       width: 100%;
-      display: block;
+      border: none;
     }
   </style>
 </head>
 <body>
   <iframe
     id="phisherman-ui"
-    src=""
-    title="Phisherman UI"
+    src="https://localhost:4200"
     frameborder="0">
   </iframe>
 
@@ -30,41 +26,8 @@
     Office.onReady(() => {
       const iframe = document.getElementById('phisherman-ui');
 
-      // Detect dev or prod environment
-      const isDev = location.hostname === "localhost" || location.hostname === "127.0.0.1";
-
-      if (isDev) {
-        // Point to Angular dev server for live testing
-        iframe.src = "https://localhost:4200/";
-      } else {
-        // Point to built Angular app for production / sideloading
-        iframe.src = "ui/dist/fusion-angular-tailwind-starter/index.html";
-      }
-
-      // Listen for "Get Started" auth messages from Angular
-      window.addEventListener('message', (event) => {
-        const msg = event.data || {};
-        if (msg.type === 'openAuth') {
-          const authUrl = msg.url;
-
-          if (Office.context?.ui?.displayDialogAsync) {
-            // Office Dialog API for Outlook
-            Office.context.ui.displayDialogAsync(
-              authUrl,
-              { height: 70, width: 50, displayInIframe: true },
-              (result) => {
-                const dialog = result.value;
-                dialog.addEventHandler(Office.EventType.DialogMessageReceived, (args) => {
-                  iframe.contentWindow.postMessage({ type: 'authResult', data: args.message }, '*');
-                });
-              }
-            );
-          } else {
-            // fallback for normal browser testing
-            window.open(authUrl, "_blank", "width=600,height=700");
-          }
-        }
-      });
+      // If using Angular dev server instead of built files:
+      // iframe.src = "https://localhost:4200"; 
     });
   </script>
 </body>
