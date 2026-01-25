@@ -1,73 +1,59 @@
 // engine.js
-// Main detection engine that orchestrates analyzers & scoring
 
 import { analyzeEmailContent } from "../analyzers/email-analyzer.js";
 import { analyzeAttachment } from "../analyzers/attachment-analyzer.js";
 import { analyzeBehavioralPatterns } from "../analyzers/behavioral-analyzer.js";
 
-/**
- * Main function to process an incoming email
- * @param {Object} email - Parsed email object with headers, body, attachments, etc.
- * @param {Object} userProfile - User/organization profile for behavioral analysis
- */
+const WEIGHTS = {
+  content: 0.45,
+  behavioral: 0.35,
+  attachment: 0.20,
+};
+
 export async function processEmail(email, userProfile = {}) {
   const report = {
     emailId: email.id || null,
     from: email.from,
     subject: email.subject,
-    results: {},
-    finalRiskScore: 0,
+    analyzers: [],
+    finalScore: 0,
     riskLevel: "low",
+    explanation: [],
   };
 
   try {
-    // 1. Content analysis
-    const contentResults = await analyzeEmailContent(email);
-    report.results.content = contentResults;
-    report.finalRiskScore += contentResults.riskScore;
+    // Run analyzers in parallel (faster + realistic)
+    const analyzerPromises = [
+      analyzeEmailContent(email),
+      analyzeBehavioralPatterns(email, userProfile),
+      ...(email.attachments?.map(f => analyzeAttachment(f)) || []),
+    ];
 
-    // 2. Attachment analysis
-    if (email.attachments && email.attachments.length > 0) {
-      report.results.attachments = [];
-      for (const file of email.attachments) {
-        const attachmentResults = await analyzeAttachment(file);
-        report.results.attachments.push(attachmentResults);
-        report.finalRiskScore += attachmentResults.riskScore;
-      }
+    const results = await Promise.all(analyzerPromises);
+
+    let weightedScore = 0;
+    let weightSum = 0;
+
+    for (const result of results) {
+      report.analyzers.push(result);
+      report.explanation.push(...result.signals);
+
+      const weight = WEIGHTS[result.name] ?? 0.1;
+      weightedScore += result.score * weight;
+      weightSum += weight;
     }
 
-    // 3. Behavioral analysis
-    const behavioralResults = await analyzeBehavioralPatterns(
-      email,
-      userProfile
-    );
-    report.results.behavioral = behavioralResults;
-    report.finalRiskScore += behavioralResults.riskScore;
+    report.finalScore = weightSum > 0 ? Math.round(weightedScore / weightSum) : 0;
 
-    // 4. Final scoring → classify into risk levels
-    if (report.finalRiskScore >= 8) {
-      report.riskLevel = "high";
-    } else if (report.finalRiskScore >= 4) {
-      report.riskLevel = "medium";
-    } else {
-      report.riskLevel = "low";
-    }
+    // Risk classification (realistic SOC-style thresholds)
+    if (report.finalScore >= 70) report.riskLevel = "high";
+    else if (report.finalScore >= 40) report.riskLevel = "medium";
+    else report.riskLevel = "low";
+
   } catch (err) {
-    console.error("Engine failed while processing email:", err);
+    console.error("Engine error:", err);
     report.error = err.message;
   }
 
   return report;
-}
-
-/**
- * Example: batch process emails (could be used by Outlook integration)
- */
-export async function processEmailBatch(emails, userProfile) {
-  const results = [];
-  for (const email of emails) {
-    const result = await processEmail(email, userProfile);
-    results.push(result);
-  }
-  return results;
 }
