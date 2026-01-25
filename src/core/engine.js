@@ -22,7 +22,7 @@ export async function processEmail(email, userProfile = {}) {
   };
 
   try {
-    // Run analyzers in parallel (faster + realistic)
+    // Run analyzers in parallel
     const analyzerPromises = [
       analyzeEmailContent(email),
       analyzeBehavioralPatterns(email, userProfile),
@@ -45,7 +45,7 @@ export async function processEmail(email, userProfile = {}) {
 
     report.finalScore = weightSum > 0 ? Math.round(weightedScore / weightSum) : 0;
 
-    // Risk classification (realistic SOC-style thresholds)
+    // Risk classification
     if (report.finalScore >= 70) report.riskLevel = "high";
     else if (report.finalScore >= 40) report.riskLevel = "medium";
     else report.riskLevel = "low";
