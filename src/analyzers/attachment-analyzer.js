@@ -1,7 +1,7 @@
 // attachment-analyzer.js
 // Handles scanning files, detecting malware/macros, and embedded links
 
-import { checkWithVirusTotal } from "../api/external-services.js";
+import { checkAttachementWithVirusTotal } from "../api/external-services.js";
 
 export async function analyzeAttachment(file) {
   const results = {
@@ -16,7 +16,7 @@ export async function analyzeAttachment(file) {
 
   try {
     // 1. File scanning with VirusTotal
-    const vtResult = await checkWithVirusTotal(file.hash);
+    const vtResult = await checkAttachementWithVirusTotal(file.hash);
     if (vtResult && vtResult.data) {
       const positives = vtResult.data.attributes.last_analysis_stats.malicious;
       if (positives > 0) {
