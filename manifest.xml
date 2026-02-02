@@ -29,7 +29,7 @@
     <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="https://localhost:4200"/>
-        <RequestedHeight>250</RequestedHeight>
+        <RequestedHeight>150</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
