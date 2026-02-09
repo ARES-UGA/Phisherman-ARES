@@ -21,7 +21,7 @@ export async function analyzeEmailContent(email) {
       }
     });
 
-    // 2. URL reputation check
+    // 2. URL reputation check // not sure we need this anymore?
     if (email.urls && email.urls.length > 0) {
       for (const url of email.urls) {
         const bad = await checkURLReputation(url);
@@ -34,7 +34,7 @@ export async function analyzeEmailContent(email) {
       }
     }
 
-    // 3. SPF/DKIM/DMARC (stub – can integrate with mail header parser)
+    // 3. SPF/DKIM/DMARC (stub – can integrate with mail header parser) //not sure we need this anymore?
     results.spfDkimDmarc = {
       spf: "pass",
       dkim: "pass",
