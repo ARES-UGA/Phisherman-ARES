@@ -1,5 +1,4 @@
 // outlook-integration.js
-// Phisherman ARES – Enhanced Outlook + Graph phishing analysis
 
 import fetch from "node-fetch";
 
@@ -8,7 +7,7 @@ const GRAPH_API_URL = "https://graph.microsoft.com/v1.0";
 // Configuration constants
 const CONFIG = {
   MAX_SAFE_HOPS: 15, // Most enterprise emails pass through 5-12 hops
-  DOMAIN_AGE_SUSPICIOUS_DAYS: 90, // More reasonable threshold
+  DOMAIN_AGE_SUSPICIOUS_DAYS: 90,
   DOMAIN_AGE_CRITICAL_DAYS: 7,
   URGENCY_KEYWORDS: [
     'urgent', 'immediate', 'suspended', 'verify now', 'click here',
